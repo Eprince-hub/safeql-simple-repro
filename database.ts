@@ -9,10 +9,7 @@ export type Animal1 = {
   isAdmin: boolean;
 };
 
-export type Animal2 = {
-  isAdmin: boolean | null;
-};
-
+// This is an expected error
 export async function getAnimal1() {
   return await sql<Animal1[]>`
     SELECT
@@ -21,8 +18,13 @@ export async function getAnimal1() {
       animals
   `;
 }
-export async function getAnimal2() {
-  return await sql<Animal2[]>`
+
+export type Animal = {
+  isAdmin: boolean | null;
+};
+
+export async function getAnimal() {
+  return await sql<Animal[]>`
     SELECT
       animals.is_admin
     FROM
