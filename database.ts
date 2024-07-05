@@ -22,7 +22,7 @@ export async function getAnimal1() {
 export type Animal = {
   isAdmin: boolean | null;
 };
-
+// This is not an expected error
 export async function getAnimal() {
   return await sql<Animal[]>`
     SELECT
